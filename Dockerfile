@@ -5,6 +5,7 @@
 
 FROM node:6-alpine
 
+# expose port 3000 on the docker container (app listens on 3000). Host needs to be mapped (80 --> 3000).
 EXPOSE 3000
 
 RUN apk add --update tini
@@ -15,11 +16,11 @@ WORKDIR /usr/src/app
 
 COPY package.json package.json
 
-
+# install all dependenceis and clean cache
 RUN npm install && npm cache clean --force
 
-
+# Copy applicate code from current directory to current working dorectory inside the docker container
 COPY . .
 
-# - then it needs to start container with command '/sbin/tini -- node ./bin/www'
+# Start Node
 CMD ["/sbin/tini", "--", "node", "./bin/www"]
