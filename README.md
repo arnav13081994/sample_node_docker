@@ -1,5 +1,13 @@
 # Simple dockerised node app 
 
+### Clone the Repo
+``
+git clone git@github.com:arnav13081994/sample_node_docker.git
+``
+
+### Navigate to the clone git repo directory
+``
+cd sample_node_docker
 
 ### Build the image
 
